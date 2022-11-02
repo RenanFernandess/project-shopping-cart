@@ -1,0 +1,16 @@
+const fetchProducts = async (value) => {
+  try {
+    const url = `https://api.mercadolibre.com/sites/MLB/search?q=${value}`;
+  const require = await fetch(url);
+  const data = await require.json();
+  return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+if (typeof module !== 'undefined') {
+  module.exports = {
+    fetchProducts,
+  };
+}
